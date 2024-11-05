@@ -3,12 +3,13 @@ import os
 import requests
 import tomllib
 
-with open("pyproject.toml", "rb") as fp:
-    config = tomllib.load(fp)
+with open("pyproject.toml", "rb") as f:
+    config = tomllib.load(f)
 
 
 def get_headers() -> dict:
-    with open("/Users/filip/src/secrets/github_ftrojan_personal_access_token.txt", "r") as fp:
+    path = config["client"]["personal_access_token_path"]
+    with open(path, "r") as fp:
         github_token = fp.read()
     headers = {"Authorization": f"Bearer {github_token}"}
     return headers

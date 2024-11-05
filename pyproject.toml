@@ -11,6 +11,7 @@ author_email = 'filip.trojan@proton.me'
 license = "MIT"
 
 [client]
+personal_access_token_path = "/storage/emulated/0/Download/secrets/github_ftrojan_personal_access_token.txt"
 target_dir = "/storage/emulated/0/Download/songbook"
 #target_dir = "/Users/filip/Downloads/songbook"
 
