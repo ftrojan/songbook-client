@@ -1,6 +1,10 @@
 import logging
 import os
 import requests
+import tomllib
+
+with open("pyproject.toml", "rb") as fp:
+    config = tomllib.load(fp)
 
 
 def get_headers() -> dict:
@@ -37,7 +41,10 @@ def clean_dir(local_dir: str) -> None:
         os.remove(file_path)
 
 
-def sync(local_dir) -> None:
+def sync(local_dir: str | None = None) -> None:
+    if local_dir is None:
+        local_dir = config["client"]["target_dir"]
+    logging.info(f"{local_dir=}")
     files_url = get_pdf_files()
     logging.info(f"{len(files_url)}:")
     clean_dir(local_dir)

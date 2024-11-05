@@ -1,0 +1,20 @@
+# https://hackersandslackers.com/simplify-your-python-projects-configuration/
+[application]
+version = "0.0.1"
+name = "songbook-client"
+python_requires = "==3.11.*"
+description = "Sync songbook files on local computer, e.g. Android tablet."
+url = "https://github.com/ftrojan/songbook-client"
+download_url = "https://github.com/ftrojan/songbook-client"
+author = 'Filip Trojan'
+author_email = 'filip.trojan@proton.me'
+license = "MIT"
+
+[client]
+target_dir = "/storage/emulated/0/Download/songbook"
+#target_dir = "/Users/filip/Downloads/songbook"
+
+[tool.black]
+line-length = 99
+target-version = ['py311']
+include = '\.pyi?$'
