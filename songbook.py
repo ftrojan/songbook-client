@@ -8,9 +8,8 @@ with open("pyproject.toml", "rb") as f:
 
 
 def get_headers() -> dict:
-    path = config["client"]["personal_access_token_path"]
-    with open(path, "r") as fp:
-        github_token = fp.read()
+    varname = config["client"]["personal_access_token_variable"]
+    github_token = os.getenv(varname)
     headers = {"Authorization": f"Bearer {github_token}"}
     return headers
 
