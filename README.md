@@ -1,6 +1,6 @@
 # songbook-client
 
-Sync sonbook files on local computer.
+Sync [songbook](https://github.com/ftrojan/songbook/tree/main) files on local computer.
 
 To use this, do following:
 1. Get your personal access token to authenticate against Github. Follow the https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic guide.
