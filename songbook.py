@@ -7,7 +7,7 @@ with open("pyproject.toml", "rb") as f:
     config = tomllib.load(f)
     pat_file = config["client"]["personal_access_token_file"]
     with open(pat_file, "r") as f:
-        github_token = f.read()
+        github_token = f.read().strip()
 
 
 def get_headers() -> dict:
