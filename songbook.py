@@ -33,6 +33,10 @@ def download_pdf(download_url: str, target_path: str) -> None:
     logging.info(f"downloaded {download_url} to {target_path}")
 
 
+def prepare_dir(local_dir: str) -> None:
+    os.makedirs(local_dir, exist_ok=True)
+
+
 def clean_dir(local_dir: str) -> None:
     files = os.listdir(local_dir)
     logging.info(files)
@@ -46,6 +50,7 @@ def sync(local_dir: str | None = None) -> None:
     if local_dir is None:
         local_dir = config["client"]["target_dir"]
     logging.info(f"{local_dir=}")
+    prepare_dir(local_dir)
     files_url = get_pdf_files()
     logging.info(f"{len(files_url)}:")
     clean_dir(local_dir)
