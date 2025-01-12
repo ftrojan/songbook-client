@@ -5,11 +5,12 @@ import tomllib
 
 with open("pyproject.toml", "rb") as f:
     config = tomllib.load(f)
+    pat_file = config["client"]["personal_access_token_file"]
+    with open(pat_file, "r") as f:
+        github_token = f.read()
 
 
 def get_headers() -> dict:
-    varname = config["client"]["personal_access_token_variable"]
-    github_token = os.getenv(varname)
     headers = {"Authorization": f"Bearer {github_token}"}
     return headers
 
